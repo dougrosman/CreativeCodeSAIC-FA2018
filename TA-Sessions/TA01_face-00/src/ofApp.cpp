@@ -1,45 +1,36 @@
 #include "ofApp.h"
 
-//--------------------------------------------------------------
-void ofApp::setup(){
+
+void ofApp::setup()
+{
     
     ofSetCircleResolution(50);
-
+    ofBackground(0);
 }
 
-//--------------------------------------------------------------
-void ofApp::update(){
 
-}
-
-//--------------------------------------------------------------
 void ofApp::draw()
 {
-    ofBackground(127);
-    
+    // Create "convenience variables" so I don't have to keep typing long things.
     float w = ofGetWidth();
     float h = ofGetHeight();
-    
-//    float w = ofGetMouseX();
-//    float h = ofGetMouseY();
-    
     float x = ofGetMouseX();
     float y = ofGetMouseY();
     
+    // Draw rectangles from the center
     ofSetRectMode(OF_RECTMODE_CENTER);
     
-    
-    ofSetColor(ofColor::yellow);
-    ofNoFill();
+    // Draw the face one component at a time.
     
     ///////////////////// HEAD ///////////////////////
     
+    ofSetLineWidth(2);
+    ofSetColor(ofColor::yellow);
+    ofNoFill();
     ofDrawEllipse(x, y, w/3, w/2);
     
     
-    
     ///////////////////// EYES ////////////////////////
-    
     
     /// Left Eye
     ofSetColor(ofColor::bisque);
@@ -54,38 +45,23 @@ void ofApp::draw()
     ofDrawEllipse(x+50, y - 100, 4, 4);
     //ofDrawBitmapString("450, 300", 450, 300);
     
+
+    ///////// HAIR //////////
     
-    /////// HAIR //////////
-    
-    for(int i = 0; i < 100; i+=10)
+    for(int i = -40; i < 70; i+=10)
     {
-        ofDrawLine(i, 50, i, 150);
+        ofDrawLine(x+i, y-240, x+i-20, y-170);
     }
-    
-    
-    
-//    /// Left Eye
-//    ofSetColor(ofColor::bisque);
-//    ofDrawRectangle(350, 300, 50, 50);
-//    ofDrawEllipse(350, 300, 4, 4);
-//    ofDrawBitmapString("350, 300", 350, 300);
-//
-//    /// Right Eye
-//    ofFill();
-//    ofSetColor(0, 180, 210);
-//    ofDrawEllipse(450, 300, 50, 50);
-//    ofDrawEllipse(450, 300, 4, 4);
-//    ofDrawBitmapString("450, 300", 450, 300);
     
     //////////////////// NOSE ////////////////////////
     
-    //ofDrawTriangle
+    ofSetColor(ofColor::pink);
+    ofDrawRectangle(x, y + 20 , 20, 30);
     
     //////////////////// MOUTH ///////////////////////
     
-    
-    
-    
+    ofSetColor(ofColor::red);
+    ofDrawRectangle(x, y + 120 , 80, 20);
     
 }
 

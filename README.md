@@ -11,3 +11,7 @@ Exercises we do in the weekly TA tutoring sessions. These exercises may go over 
 
 ##### Extra-Examples:
 These are for-fun things, or other little example sketches that could be beneficial to look at. For example, that colorful animating sine-wave thing I showed in class is in here.
+
+
+###### Email me if you have questions!
+-Doug
