@@ -8,22 +8,15 @@ void ofApp::setup()
     ofSetFrameRate(60);
 }
 
-void ofApp::update()
-{
-
-}
-
-
 void ofApp::draw()
 {
-    float width = ofGetWidth();
-    float height = ofGetHeight();
-    
+
     ofSetLineWidth(3);
-    ofSetColor(ofColor::fromHsb(255, 255, 255));
     
+    // Click and drag to draw a line.
     if(ofGetMousePressed())
     {
+        
         // Get the current Mouse position
         float currX = ofGetMouseX();
         float currY = ofGetMouseY();
@@ -31,78 +24,28 @@ void ofApp::draw()
         // Draw our line
         ofDrawLine(prevX, prevY, currX, currY);
         
+        // Store our most recent current mouseX and mouseY into prevX and prevY for drawing the next connecting line.
         prevX = currX;
         prevY = currY;
-        
-        
         
     }
     else
     {
+        // Set a new color for each new drawn line
+        ofSetColor(ofColor::fromHsb(ofRandom(255), 255, 255));
+        
+        // keep updating prevX and prevY with current mouse position so your lines are drawn correctly.
         prevX = ofGetMouseX();
         prevY = ofGetMouseY();
     }
-    
-    
 }
-
 
 void ofApp::keyPressed(int key)
 {
+    // press 'c' to clear the background
     if(key == 'c')
     {
         ofClear(0);
     }
 }
 
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key)
-{
-    
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
-    
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
-}
