@@ -9,7 +9,6 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void draw();
 
-		void keyPressed(int key);
     
     Face myFace;
     
